@@ -1,7 +1,12 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useCookies } from 'vue3-cookies'
+import { decodeCredential } from 'vue3-google-login'
 
+const isLoggedIn = ref(false)
 const StarsRef = ref([])
+const {cookies} = useCookies()
+let userName = ''
 
 const planet = ref({
     name: '',
@@ -26,6 +31,7 @@ function addPlanet() {
             console.log('Planet added successfully:', data);
             planet.value = {
                 name: '',
+                image: '',
                 star: '',
                 size: '',
                 lengthOfDay: '',
@@ -37,6 +43,13 @@ function addPlanet() {
         })
         .catch(err => console.error('error adding planet', err))
 }
+const checkSession = () => {
+        if(cookies.isKey('user_session')){
+            isLoggedIn.value = true
+            const userData = decodeCredential(cookies.get('user_session'))
+            userName = userData.given_name
+        }
+    }
 
 const fetchData = () => {
     fetch(`${import.meta.env.VITE_API_URL}/stars`)
@@ -48,18 +61,25 @@ const fetchData = () => {
         .catch(err => console.log(err))
 }
 
-onMounted(fetchData)
+
+onMounted(() => {
+    fetchData()
+    checkSession()
+})
 
 
 </script>
 
 <template>
-    <div>
+    <div v-if="isLoggedIn">
         <h3>Add a new planet</h3>
         <div class="planetForm">
             <form action="#">
                 <label for="name">Name: </label>
                 <input type="text" name="name" placeholder="Earth" v-model="planet.name" required>
+
+                <label for="image">Image URL: </label>
+                <input type="text" name="image" placeholder="https://example.com/planet-image.jpg" v-model="planet.image" required>
 
                 <label for="star"> Star: </label>
                 <select name="star" id="star" v-model="planet.star">

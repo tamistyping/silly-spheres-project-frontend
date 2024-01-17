@@ -22,10 +22,10 @@ onMounted(() => {
 
 <template>
   <div class="about">
-    <h1>This is an explore page</h1>
+    <h2>Click on a Solar System to start exploring!</h2>
     <ul>
       <li v-for="star in StarsRef" :key="star.id">
-        <RouterLink :to="`/planetslist/${star._id}`">{{ star.name }}</RouterLink>
+        <RouterLink :to="`/planetslist/${star._id}`"><img :src="star.image" alt="Star Image" class="image-star-container">{{ star.name }}</RouterLink>
       </li>
     </ul>
   </div>

@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
     import {ref, onMounted} from 'vue'
     import { useCookies } from 'vue3-cookies'
     import {decodeCredential, googleLogout} from 'vue3-google-login'
@@ -14,7 +14,7 @@
         console.log(userData);
         userName = userData.given_name
         cookies.set('user_session', response.credential)
-        fetch(`${import.meta.env.VITE_API_URL}/user/login`, {
+        fetch(`${import.meta.env.VITE_API_URL}/users/login`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -38,8 +38,8 @@
     }
     
     
-    const handleLogout = ()=> {
-        googleLogout()
+    const handleLogout = async () => {
+        await googleLogout()
         cookies.remove('user_session')
         isLoggedIn.value = false
     }
@@ -57,8 +57,4 @@
     <div v-else>
         <GoogleLogin :callback="callback"/>
     </div>
-</template> -->
-
-<template>
-    
 </template>

@@ -24,7 +24,7 @@ const routes = [
       component: NewPlanet
     },
     {
-      path: '/planetslist/:sun',
+      path: '/planetslist/:star',
       name: 'planets',
       component: Planets
     },

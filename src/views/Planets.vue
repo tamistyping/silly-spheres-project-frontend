@@ -6,9 +6,9 @@
   
   const PlanetsRef = ref([])
   const route = useRoute()
-  
+
   const fetchData = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/planets/list/${route.params.sun}`)
+    fetch(`${import.meta.env.VITE_API_URL}/planets/list/${route.params.star}`)
       .then(res => res.json())
       .then(result => {
         PlanetsRef.value = result
@@ -25,10 +25,11 @@
 
 <template>
     <div class="planets">
-      <h1>Planets</h1>
+      <h1>Click on a planet to find out more!</h1>
       <ul>
         <li v-for="planet in PlanetsRef" :key="planet._id">
-          <RouterLink :to="'/planets/' + planet._id">{{ planet.name }}</RouterLink>
+          <RouterLink :to="'/planets/' + planet._id"><img :src="planet.image" alt="Planet Image" class="image-container">{{ planet.name }}</RouterLink>
+          
         </li>
       </ul>
     </div>
