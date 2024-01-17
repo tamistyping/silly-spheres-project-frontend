@@ -5,6 +5,7 @@ import Planets from '../views/Planets.vue'
 import SinglePlanet from '../views/SinglePlanet.vue'
 import NewPlanet from '../views/Create.vue'
 import Login from '../views/Login.vue'
+import EditPlanet from '../views/Edit.vue'
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/planet/update/:id',
+      name: 'editplanet',
+      component: EditPlanet
     }
   ]
 

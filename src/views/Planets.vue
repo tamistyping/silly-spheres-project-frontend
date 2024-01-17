@@ -5,10 +5,9 @@
   import { useRoute } from 'vue-router';
   
   const PlanetsRef = ref([])
+  const route = useRoute()
   
   const fetchData = () => {
-    const route = useRoute()
-    
     fetch(`${import.meta.env.VITE_API_URL}/planets/list/${route.params.sun}`)
       .then(res => res.json())
       .then(result => {

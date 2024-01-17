@@ -1,15 +1,64 @@
+<!-- <script setup>
+    import {ref, onMounted} from 'vue'
+    import { useCookies } from 'vue3-cookies'
+    import {decodeCredential, googleLogout} from 'vue3-google-login'
+
+    const {cookies} = useCookies()
+
+    let isLoggedIn = ref(false)
+    let userName = ''
+
+    const callback = (response) => {
+        isLoggedIn.value = true
+        const userData = decodeCredential(response.credential)
+        console.log(userData);
+        userName = userData.given_name
+        cookies.set('user_session', response.credential)
+        fetch(`${import.meta.env.VITE_API_URL}/user/login`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                userEmail: userData.email
+            })
+        })
+        .then(() => {
+            console.log('session executed');
+        })
+        .catch(err => console.error(err))
+    }
+
+    const checkSession = () => {
+        if(cookies.isKey('user_session')){
+            isLoggedIn.value = true
+            const userData = decodeCredential(cookies.get('user_session'))
+            userName = userData.given_name
+        }
+    }
+    
+    
+    const handleLogout = ()=> {
+        googleLogout()
+        cookies.remove('user_session')
+        isLoggedIn.value = false
+    }
+    
+    onMounted(checkSession)
+
+</script>
+
 <template>
-    <div id="app">
-      <header>
-       <h1>Home</h1>
-  
-      </header>
-  
-      <main>
-  
-      </main>
+    <h1>Login</h1>
+    <div v-if="isLoggedIn">
+        <h2>Hello {{ userName }}</h2>
+        <button @click="handleLogout">Log Out</button>
     </div>
-  </template>
-  
-  <script>
-  </script>
+    <div v-else>
+        <GoogleLogin :callback="callback"/>
+    </div>
+</template> -->
+
+<template>
+    
+</template>
