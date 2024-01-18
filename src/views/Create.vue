@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useCookies } from 'vue3-cookies'
+import { useRouter } from 'vue-router'
 import { decodeCredential } from 'vue3-google-login'
 
 const isLoggedIn = ref(false)
 const StarsRef = ref([])
 const {cookies} = useCookies()
+const router = useRouter()
 let userName = ''
 
 const planet = ref({
@@ -18,7 +20,7 @@ const planet = ref({
     moons: ''
 })
 
-function addPlanet() {
+async function addPlanet() {
     console.log('Adding planet:', planet.value);
     fetch(`${import.meta.env.VITE_API_URL}/planets/new`, {
         method: "POST",
@@ -27,7 +29,9 @@ function addPlanet() {
         },
         body: JSON.stringify(planet.value)
     })
-        .then(res => {
+        .then(res => res.json()) // Parse the response as JSON
+        .then(router.replace({ name: 'explore' }))
+        .then(data => {
             console.log('Planet added successfully:', data);
             planet.value = {
                 name: '',
@@ -38,11 +42,13 @@ function addPlanet() {
                 lengthOfYear: '',
                 atmosphere: '',
                 moons: ''
-            }
-            console.log(res);
+            };
+            router.replace({ name: 'explore' })
         })
-        .catch(err => console.error('error adding planet', err))
+        .catch(err => console.error('Error adding planet', err));
 }
+
+
 const checkSession = () => {
         if(cookies.isKey('user_session')){
             isLoggedIn.value = true
@@ -70,39 +76,69 @@ onMounted(() => {
 
 </script>
 
+
+
+
+
+
+
+
+
 <template>
-    <div v-if="isLoggedIn">
-        <h3>Add a new planet</h3>
-        <div class="planetForm">
-            <form action="#">
-                <label for="name">Name: </label>
-                <input type="text" name="name" placeholder="Earth" v-model="planet.name" required>
-
-                <label for="image">Image URL: </label>
-                <input type="text" name="image" placeholder="https://example.com/planet-image.jpg" v-model="planet.image" required>
-
-                <label for="star"> Star: </label>
-                <select name="star" id="star" v-model="planet.star">
-                    <option v-for="star in StarsRef" :key="star._id" :value="star._id">{{ star.name }}</option>
-                </select>
-
-                <label for="size"> Size: </label>
-                <input type="text" name="size" placeholder="Medium" v-model="planet.size" required>
-
-                <label for="lengthOfDay"> Length of Day: </label>
-                <input type="text" name="lengthOfDay" placeholder="24 hours" v-model="planet.lengthOfDay" required>
-
-                <label for="lengthOfYear"> Length of Year: </label>
-                <input type="text" name="lengthOfYear" placeholder="365 days" v-model="planet.lengthOfYear" required>
-
-                <label for="atmosphere"> Atmosphere: </label>
-                <input type="text" name="atmosphere" placeholder="Breathable" v-model="planet.atmosphere" required>
-
-                <label for="moons"> Moons: </label>
-                <input type="text" name="moons" placeholder="1" v-model="planet.moons" required>
-
-                <button @click="addPlanet">Add Planet</button>
-            </form>
+    <div>
+    <div v-if="isLoggedIn" class="planetForm container mt-3">
+      <form @submit.prevent="addPlanet">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Earth" v-model="planet.name" required>
         </div>
+  
+        <div class="mb-3">
+          <label for="image" class="form-label">Image URL:</label>
+          <input type="text" class="form-control" id="image" placeholder="https://example.com/planet-image.jpg"
+            v-model="planet.image" required>
+        </div>
+  
+        <div class="mb-3">
+          <label for="star" class="form-label">Star:</label>
+          <select class="form-select" id="star" v-model="planet.star" required>
+            <option v-for="star in StarsRef" :key="star._id" :value="star._id">{{ star.name }}</option>
+          </select>
+        </div>
+  
+        <div class="row">
+        <div class="col-md-3 mb-3">
+          <label for="size" class="form-label">Size:</label>
+          <input type="text" class="form-control" id="size" placeholder="Medium" v-model="planet.size" required>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label for="lengthOfDay" class="form-label">Length of Day:</label>
+          <input type="text" class="form-control" id="lengthOfDay" placeholder="24 hours" v-model="planet.lengthOfDay" required>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label for="lengthOfYear" class="form-label">Length of Year:</label>
+          <input type="text" class="form-control" id="lengthOfYear" placeholder="365 days" v-model="planet.lengthOfYear" required>
+        </div>
+
+        <div class="col-md-3 mb-3">
+          <label for="moons" class="form-label">Moons:</label>
+          <input type="text" class="form-control" id="moons" placeholder="1" v-model="planet.moons" required>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="atmosphere" class="form-label">Atmosphere:</label>
+        <textarea class="form-control" id="atmosphere" rows="5" placeholder="Breathable" v-model="planet.atmosphere" required></textarea>
+      </div>
+  
+        <button type="submit" class="btn btn-primary">Add Planet</button>
+      </form>
     </div>
-</template>
+    <div v-else class="text-center mt-5">
+      <p>Please log in to add a planet.</p>
+      
+    </div>
+</div>
+  </template>

@@ -49,12 +49,19 @@
 </script>
 
 <template>
-    <h1>Login</h1>
-    <div v-if="isLoggedIn">
-        <h2>Hello {{ userName }}</h2>
-        <button @click="handleLogout">Log Out</button>
+    <div class="container mt-5 mb-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          
+          <div v-if="isLoggedIn" class="text-center">
+            <h2>Hello {{ userName }}</h2>
+            <button @click="handleLogout" class="btn btn-danger mt-3">Log Out</button>
+          </div>
+          
+          <div v-else class="text-center">
+            <GoogleLogin :callback="callback" />
+          </div>
+        </div>
+      </div>
     </div>
-    <div v-else>
-        <GoogleLogin :callback="callback"/>
-    </div>
-</template>
+  </template>

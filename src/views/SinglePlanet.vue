@@ -1,12 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useCookies } from 'vue3-cookies'
 import { decodeCredential } from 'vue3-google-login'
 
 const isLoggedIn = ref(false)
 const planet = ref({})
 const route = useRoute()
+const router = useRouter()
 const {cookies} = useCookies()
 
 let userName = ''
@@ -36,7 +37,7 @@ function deletePlanet(planetId){
         method: "DELETE"
     })
     .then(() => {
-        alert('planet deleted')
+        router.replace({ name: 'explore' })
         fetchData()
     })
     .catch(err => console.error(err))
@@ -53,18 +54,46 @@ const checkSession = () => {
 </script>
 
 <template>
-    <div>
-        <h1>{{ planet.name }}</h1>
-        <!-- <div class="image-container"> -->
-            <img :src="planet.image" alt="Planet Image" class="image-container">
-        <!-- </div> -->
-        <h3>Size: {{ planet.size }}</h3>
-        <h3>Length of Day: {{ planet.lengthOfDay }}</h3>
-        <h3>Length of Year: {{ planet.lengthOfYear }}</h3>
-        <h3>Atmosphere: {{ planet.atmosphere }}</h3>
-        <h3>Moons: {{ planet.moons }}</h3>
-        <RouterLink v-if="isLoggedIn" :to="'/planet/update/' + planet._id">Edit</RouterLink>
-        <button v-if="isLoggedIn" @click="deletePlanet(planet._id)">Delete</button>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img :src="planet.image" alt="Planet Image" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6 mt-5">
+          <table class="table table-bordered" style="background-color: rgba(255, 255, 255, 0.7);">
+            <tbody>
+              <tr>
+                <th scope="row" class="bg-primary text-white">Name</th>
+                <td>{{ planet.name }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-primary text-white">Size</th>
+                <td>{{ planet.size }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-primary text-white">Length of Day</th>
+                <td>{{ planet.lengthOfDay }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-primary text-white">Length of Year</th>
+                <td>{{ planet.lengthOfYear }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-primary text-white">Atmosphere</th>
+                <td>{{ planet.atmosphere }}</td>
+              </tr>
+              <tr>
+                <th scope="row" class="bg-primary text-white">Moons</th>
+                <td>{{ planet.moons }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div v-if="isLoggedIn">
+            <RouterLink :to="'/planet/update/' + planet._id" class="btn btn-primary mr-2">Edit</RouterLink>
+            <button @click="deletePlanet(planet._id)" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
 
