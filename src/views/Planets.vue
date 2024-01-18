@@ -24,16 +24,13 @@
   </script>
 <template>
     <div class="planets container mt-3">
-      <h3 class="text-center">Choose a Planet 👇</h3>
+      <h3 class="text-center mb-3 mt-4">Choose a Planet 👇</h3>
       <div class="row">
         <div v-for="planet in PlanetsRef" :key="planet._id" class="col-md-4 mb-3">
           <RouterLink :to="'/planets/' + planet._id" class="text-decoration-none">
             <div class="custom-card">
               <div class="image-container">
                 <img :src="planet.image" alt="Planet Image" class="card-img-top" />
-              </div>
-              <div class="card-body text-center p-0 planet-info">
-                <h5 class="card-title m-0">{{ planet.name }}</h5>
               </div>
             </div>
           </RouterLink>

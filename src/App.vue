@@ -5,25 +5,28 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
     
-<h1 class="text-center lh-base mt-4">Silly Spheres</h1>
-<nav class="navbar navbar-expand navbar-light">
-  <div class="navbar-collapse justify-content-center">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <RouterLink class="nav-link" to="/">Home</RouterLink>
-      </li>
-      <li class="nav-item">
-        <RouterLink class="nav-link" to="/explore">Explore</RouterLink>
-      </li>
-      <li class="nav-item">
-        <RouterLink class="nav-link" to="/create">Create</RouterLink>
-      </li>
-      <li class="nav-item">
-        <RouterLink class="nav-link" to="/login">Login</RouterLink>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <div class="container-fluid p-3" style="background-color: rgba(255, 255, 255, 0.5); width: 100%;">
+  <h1 class="text-center lh-base mt-4">Silly Spheres</h1>
+  
+  <nav class="navbar navbar-expand navbar-light">
+    <div class="navbar-collapse justify-content-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/">Home</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/explore">Explore</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/create">Create</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/login">Login</RouterLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 
 
