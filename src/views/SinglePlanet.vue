@@ -68,15 +68,15 @@ const checkSession = () => {
               </tr>
               <tr>
                 <th scope="row" class="bg-primary text-white">Size</th>
-                <td>{{ planet.size }}</td>
+                <td>{{ planet.size }} km</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-primary text-white">Length of Day</th>
-                <td>{{ planet.lengthOfDay }}</td>
+                <td>{{ planet.lengthOfDay }} hours</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-primary text-white">Length of Year</th>
-                <td>{{ planet.lengthOfYear }}</td>
+                <td>{{ planet.lengthOfYear }} days</td>
               </tr>
               <tr>
                 <th scope="row" class="bg-primary text-white">Atmosphere</th>
