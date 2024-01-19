@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router'
 import vue3GoogleLogin from 'vue3-google-login'
 import Vue3Cookies from 'vue3-cookies'
+// import favicon from './assets/favicon.png'
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
