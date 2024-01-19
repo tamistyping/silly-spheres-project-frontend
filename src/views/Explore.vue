@@ -21,7 +21,7 @@ onMounted(() => {
 
 <template>
   <div class="about container mt-3">
-    <h3 class="text-center mb-3 mt-4">Choose a star 👇</h3>
+    <h3 class="text-center mb-2 mt-4" style="font-family: 'Space Grotesk';">Choose a star 👇</h3>
     <div class="row">
       <div v-for="star in StarsRef" :key="star.id" class="col-md-4 mb-3">
         <RouterLink :to="`/planetslist/${star._id}`" class="text-decoration-none">

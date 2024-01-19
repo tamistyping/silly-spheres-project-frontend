@@ -60,7 +60,7 @@ const checkSession = () => {
           <img :src="planet.image" alt="Planet Image" class="img-fluid rounded">
         </div>
         <div class="col-md-6 mt-5">
-          <table class="table table-bordered" style="background-color: rgba(255, 255, 255, 0.7);">
+          <table class="table table-bordered" style="background-color: rgba(255, 255, 255, 0.7); font-family: 'Space Grotesk';">
             <tbody>
               <tr>
                 <th scope="row" class="bg-primary text-white">Name</th>
@@ -88,8 +88,8 @@ const checkSession = () => {
               </tr>
             </tbody>
           </table>
-          <div v-if="isLoggedIn">
-            <RouterLink :to="'/planet/update/' + planet._id" class="btn btn-primary mr-2">Edit</RouterLink>
+          <div v-if="isLoggedIn" style="font-family: 'Space Grotesk';">
+            <RouterLink :to="'/planet/update/' + planet._id" class="btn btn-primary" style="margin-right: 10px;">Edit</RouterLink>
             <button @click="deletePlanet(planet._id)" class="btn btn-danger">Delete</button>
           </div>
         </div>

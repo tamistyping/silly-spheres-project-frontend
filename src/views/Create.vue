@@ -78,7 +78,7 @@ onMounted(() => {
 
 <template>
     <div>
-      <div v-if="isLoggedIn" class="planetForm container mt-3" style="background-color: rgba(255, 255, 255, 0.2); padding: 20px;">
+      <div v-if="isLoggedIn" class="planetForm container mt-3" style="background-color: rgba(255, 255, 255, 0.2); padding: 20px; font-family: 'Space Grotesk';">
         <form @submit.prevent="addPlanet">
           <div class="mb-3">
             <label for="name" class="form-label">🌎 Name:</label>
