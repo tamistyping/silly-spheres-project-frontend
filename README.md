@@ -29,9 +29,16 @@ I wanted the explore page to be fun for the User. Once explore was clicked, it w
  that certain planet.
 
 <h4>Day Two</h4>
-I started off Day Two by creating my models for Stars, Planets & Users:
+I decided to split my day into 3 parts. Models, Controllers & Routes.
+<br>
+I started off with my models:
 <img width="456" alt="Screenshot 2024-01-22 at 08 44 02" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/95f2ab6a-5770-40cb-97e0-7ae7bcfa2b82">
-<img width="343" alt="Screenshot 2024-01-22 at 08 44 11" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/694080ed-546c-42d4-a44a-ab3254b3e6f8"> 
-<img width="377" alt="Screenshot 2024-01-22 at 08 44 27" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/b25995fa-d6b5-4034-9226-cc982bc0f5a9"> 
 
+Then I created my controllers where I implemented the CRUD functionalities:
+<img width="782" alt="Screenshot 2024-01-22 at 09 11 00" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/88ba1b65-7157-43f3-a0ed-ffec4a91bded">
+
+I finished off the day by creating my routes for each model:
+<img width="685" alt="Screenshot 2024-01-22 at 09 12 01" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/56b32115-2ec0-4321-afdd-69599ac8f7df">
+
+<h4>Day Three</h4>
 
