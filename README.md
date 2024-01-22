@@ -60,10 +60,45 @@ I spent my fourth day fetching data from NASA's APOD API to my home page & also 
 
 <h4>Final Day</h4>
 After spending a whole day playing around with Bootstrap & CSS, I aligned my app to my initial design.
-
+<br>
 Home: 
+<img width="1017" alt="Screenshot 2024-01-22 at 10 44 43" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/65f19769-2ade-48f6-9483-3cf7f3dbb991">
+<br>
+Explore (stars):
+<img width="1013" alt="Screenshot 2024-01-22 at 10 48 34" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/963bce31-9f39-442b-ad16-5db8a7182826">
+<br>
+Explore (Planets):
+<img width="1003" alt="Screenshot 2024-01-22 at 10 48 50" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/99765236-acd4-42bd-b22c-dcf8152f76bf">
+<br>
+Explore (singlePlanet):
+<img width="1005" alt="Screenshot 2024-01-22 at 10 48 59" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/cca11bd5-9a94-437a-91f6-63ecfad3ba38">
+<br>
+Create (only (ifLoggedIn)):
+
+<img width="976" alt="Screenshot 2024-01-22 at 10 49 13" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/bd9b4a57-2f2d-417e-8c06-eb42b1b169cf">
 
 <br>
 I also implemented a cool favicon (rocket) by linking the icon from the assets to my index.html. 
 
+<br>
+
+<h2>Challenges</h2>
+- I tried to implement a sort function where planets could be arranged in size / alphabetical order, but I ran out of time.
+<br>
+- I feel like my plan could've been a bit better as I underestimated how long styling/designing would've taken me. 
+<br>
+<h2>Wins</h2>
+- My main win has been becoming more confident using the MEVN (MongoDB, Express.js, Vue.js, Node.js) stack.
+<br>
+- MongoDB became crucial for managing and storing my Planets & Stars.
+<br>
+- Express allowed me to build a scalable server-side application, handling HTTP request.
+<br>
+- Developing the frontend was my favourite part. I enjoyed playing around with the interface, trying to align it with my initial plans.
+<br>
+
+<h2>Future Improvements</h2>
+- Input a sort button on my planets view page.
+<br> 
+- Allow users to access their profile and edit their details.
 
