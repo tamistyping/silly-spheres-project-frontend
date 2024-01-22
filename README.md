@@ -29,11 +29,11 @@ I wanted the explore page to be fun for the User. Once explore was clicked, it w
  that certain planet.
 
 <h4>Day Two</h4>
-I decided to split my day into 3 parts. Models, Controllers & Routes.
-<br>
-I started off with my models:
+I decided to split my day into 3 parts; Models, Controllers & Routes.
+<br> <br>
+I started off with my models: <br>
 <img width="456" alt="Screenshot 2024-01-22 at 08 44 02" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/95f2ab6a-5770-40cb-97e0-7ae7bcfa2b82">
-
+<br>
 Then I created my controllers where I implemented the CRUD functionalities:
 <img width="782" alt="Screenshot 2024-01-22 at 09 11 00" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/88ba1b65-7157-43f3-a0ed-ffec4a91bded">
 
@@ -41,4 +41,29 @@ I finished off the day by creating my routes for each model:
 <img width="685" alt="Screenshot 2024-01-22 at 09 12 01" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/56b32115-2ec0-4321-afdd-69599ac8f7df">
 
 <h4>Day Three</h4>
+After completing my backend, I started on my frontend.
+<br>
+I created seperate vue pages for Stars, Planets, SinglePlanet and fetched the relevant data. <br>
+<img width="717" alt="Screenshot 2024-01-16 at 16 39 18" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/330fc19b-db6e-4095-b8cb-fc18597e2f20">
+<br>
+<img width="613" alt="Screenshot 2024-01-22 at 10 37 48" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/19f13994-f0d2-46a1-b3dc-0ef6c69fb9d8">
+
+I finished my Day Three tasks earlier than expected, so I created a basic form to collect data from my frontend for my 'POST' request to add a new planet. 
+<br>
+<img width="716" alt="Screenshot 2024-01-16 at 16 39 08" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/459f93e1-8d79-46e3-9933-af44975aa023">
+
+
+<h4>Day Four</h4>
+I spent my fourth day fetching data from NASA's APOD API to my home page & also implementing Google User Authentication. I made sure all the app functionalities were working so I could dedicate my final day to just making everything aesthetic. 
+<br>
+<img width="622" alt="Screenshot 2024-01-22 at 10 39 06" src="https://github.com/tamistyping/silly-spheres-project-frontend/assets/114356636/7a5201cb-f185-4056-a239-7c68ca5690c2">
+
+<h4>Final Day</h4>
+After spending a whole day playing around with Bootstrap & CSS, I aligned my app to my initial design.
+
+Home: 
+
+<br>
+I also implemented a cool favicon (rocket) by linking the icon from the assets to my index.html. 
+
 
